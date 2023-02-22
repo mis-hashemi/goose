@@ -1,0 +1,2 @@
+# goose
+Reliable Websocket Library
