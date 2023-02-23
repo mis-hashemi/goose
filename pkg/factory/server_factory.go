@@ -12,5 +12,5 @@ type GooseServerFactory interface {
 	// Listen will set up a server on given writer and reader
 	ListenOn(writer io.Writer, reader io.Reader, options ...model.ServerOption) (*model.WebSocketServer, error)
 	// StartTestServer will set up a server for testing purpose. Note that it does not require any
-	StartTestServer(options ...model.ServerOption) (*model.WebSocketServer, error)
+	StartTestServer(options ...model.ServerOption) (*model.WebSocketServer, *model.WebSocketTestHandler, error)
 }
