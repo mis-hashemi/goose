@@ -2,6 +2,7 @@ package fac
 
 import (
 	"io"
+	"net/http"
 
 	"github.com/mis-hashemi/goose/pkg/model"
 )
@@ -11,6 +12,8 @@ type GooseServerFactory interface {
 	Listen(url string, options ...model.ServerOption) (*model.WebSocketServer, error)
 	// Listen will set up a server on given writer and reader
 	ListenOn(writer io.Writer, reader io.Reader, options ...model.ServerOption) (*model.WebSocketServer, error)
+	// Listen on http writer and reader
+	ListenOnHttp(w http.ResponseWriter, r *http.Request, options ...model.ServerOption) (*model.WebSocketServer, error)
 	// StartTestServer will set up a server for testing purpose. Note that it does not require any
 	StartTestServer(options ...model.ServerOption) (*model.WebSocketServer, *model.WebSocketTestHandler, error)
 }
